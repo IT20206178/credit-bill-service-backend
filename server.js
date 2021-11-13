@@ -20,6 +20,8 @@ mongoose
     .then(() => console.log("DB Connected"))
     .catch((err) => console.log(err));
 
+    const userRouter=require("./routes/users.js");
+
 // Middlewares
 app.use(cors());
 app.use(morgan('dev'));
@@ -27,6 +29,7 @@ app.use(bodyParser.json());
 
 // Route Middleware
 // app.use('/api', postRoutes);
+app.use('/users',userRouter);
 
 // Post
 const port = process.env.PORT || 8000;
